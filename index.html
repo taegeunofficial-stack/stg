@@ -1,48 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>STG — Confidence Restoration Company</title>
+  <title>STG — 신뢰 회복 회사</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #fff;
+      color: #111;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.9);
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #111;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      letter-spacing: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .image-block {
+      height: 500px;
+      background: #eaeaea;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    footer {
+      padding: 60px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
 
-  <section class="hero">
-    <h1>STG</h1>
-    <p>Confidence is not given.<br>It is restored.</p>
-  </section>
+<nav>
+  <div>STG</div>
+  <div>
+    <a href="#">Brand</a>
+    <a href="#">Business</a>
+    <a href="#">Product</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
 
-  <section class="section">
-    <h2>What is STG?</h2>
-    <p>
-      STG is a Confidence Restoration Company.<br>
-      We exist to rebuild human confidence — externally and internally.
-    </p>
-  </section>
+<section class="hero">
+  <h1>STG</h1>
+  <p>자신감은 주어지는 것이 아니라 회복되는 것이다.</p>
+</section>
 
-  <section class="section dark">
-    <h2>What We Build</h2>
-    <ul>
-      <li>Beauty & Hair Systems</li>
-      <li>Luxury Lifestyle Experiences</li>
-      <li>Emotional & Physical Recovery</li>
-      <li>Future Biotechnology</li>
-    </ul>
-  </section>
+<div class="image-block"></div>
 
-  <section class="section">
-    <h2>Our Philosophy</h2>
-    <p>
-      Confidence changes posture.<br>
-      Posture changes life.<br><br>
-      STG restores the energy that makes people stand taller.
-    </p>
-  </section>
+<section>
+  <h2>Brand</h2>
+  <p>STG는 외형이 아닌 중심을 회복하는 회사입니다.</p>
+</section>
 
-  <footer>
-    <p>STG © 2026</p>
-  </footer>
+<section>
+  <h2>Business</h2>
+  <div class="grid">
+    <div>Hair / Beauty</div>
+    <div>Lifestyle</div>
+    <div>Bio / Healthcare</div>
+  </div>
+</section>
+
+<section>
+  <h2>Explore STG</h2>
+</section>
+
+<footer>
+  © STG
+</footer>
 
 </body>
 </html>
