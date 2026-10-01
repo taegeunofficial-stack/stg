@@ -4,344 +4,785 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>STG — AI & Automation</title>
+<title>STG — Building the Future of Work</title>
 
-<meta name="description" content="STG는 AI와 자동화를 통해 기업의 반복 업무를 줄이는 방법을 실제 현장에서 검증하는 초기 단계의 기업입니다.">
+<meta name="description" content="STG는 AI와 자동화를 통해 기업의 반복 업무를 줄이고, 새로운 업무 방식을 만들어가는 초기 단계의 기업입니다.">
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, "Noto Sans KR", sans-serif;
-  color: #111;
-  background: #fff;
-  line-height: 1.7;
+    margin: 0;
+    background: #050505;
+    color: #f5f5f5;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
-.wrap {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 28px;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-header {
-  padding: 30px 0;
-  border-bottom: 1px solid #eee;
+.container {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+/* NAV */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(5,5,5,0.78);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-inner {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-  font-size: 25px;
-  font-weight: 800;
-  letter-spacing: 2px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 4px;
 }
 
+.nav-links {
+    display: flex;
+    gap: 34px;
+    font-size: 13px;
+    color: #999;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* HERO */
+
 .hero {
-  padding: 110px 0 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 76px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    right: -220px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.09) 0%,
+        rgba(255,255,255,0.03) 35%,
+        transparent 70%
+    );
+    pointer-events: none;
 }
 
 .eyebrow {
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: #777;
-  margin-bottom: 22px;
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
 }
 
-h1 {
-  font-size: clamp(42px, 7vw, 76px);
-  line-height: 1.08;
-  letter-spacing: -3px;
-  margin: 0 0 30px;
-  max-width: 850px;
+.hero h1 {
+    font-size: clamp(54px, 8vw, 104px);
+    line-height: 0.98;
+    letter-spacing: -5px;
+    margin: 0;
+    font-weight: 700;
+    max-width: 1050px;
 }
 
-.hero p {
-  font-size: 20px;
-  color: #555;
-  max-width: 700px;
+.hero h1 span {
+    color: #666;
 }
+
+.hero-description {
+    margin-top: 42px;
+    max-width: 650px;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-flex;
+    margin-top: 42px;
+    padding: 16px 25px;
+    border: 1px solid #444;
+    border-radius: 100px;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.hero-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* SECTIONS */
 
 section {
-  padding: 75px 0;
-  border-top: 1px solid #eee;
+    padding: 150px 0;
+    border-top: 1px solid #181818;
 }
 
-h2 {
-  font-size: 30px;
-  margin: 0 0 28px;
+.section-label {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+.section-title {
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -3px;
+    line-height: 1.1;
+    margin: 0 0 30px;
+    max-width: 850px;
+}
+
+.section-description {
+    color: #888;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 720px;
+}
+
+/* CARDS */
+
+.cards {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
 }
 
 .card {
-  border: 1px solid #e5e5e5;
-  padding: 28px;
-  min-height: 170px;
+    min-height: 280px;
+    padding: 38px;
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #0b0b0b;
+}
+
+.card-number {
+    color: #555;
+    font-size: 12px;
+    margin-bottom: 65px;
 }
 
 .card h3 {
-  margin: 0 0 12px;
-  font-size: 20px;
+    font-size: 21px;
+    margin: 0 0 15px;
 }
 
 .card p {
-  margin: 0;
-  color: #666;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
 }
 
-.steps {
-  display: grid;
-  gap: 18px;
+/* PROCESS */
+
+.process {
+    margin-top: 70px;
 }
 
-.step {
-  display: grid;
-  grid-template-columns: 55px 1fr;
-  gap: 18px;
+.process-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    padding: 35px 0;
+    border-top: 1px solid #222;
 }
 
-.num {
-  color: #888;
+.process-number {
+    color: #555;
+    font-size: 13px;
 }
 
-.step strong {
-  font-size: 19px;
+.process-content h3 {
+    margin: 0 0 8px;
+    font-size: 22px;
 }
 
-.step p {
-  margin: 5px 0 0;
-  color: #666;
+.process-content p {
+    margin: 0;
+    color: #777;
+    line-height: 1.7;
 }
+
+/* FOCUS */
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 70px;
+}
+
+.focus {
+    padding: 35px;
+    min-height: 230px;
+    background: #0b0b0b;
+    border: 1px solid #1d1d1d;
+}
+
+.focus h3 {
+    margin: 0 0 18px;
+    font-size: 20px;
+}
+
+.focus p {
+    color: #777;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* EARLY */
+
+.early {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.early-big {
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+}
+
+.early-text {
+    color: #888;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+/* CONTACT */
 
 .contact {
-  background: #111;
-  color: #fff;
-  padding: 60px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.contact p {
-  color: #bbb;
+.contact h2 {
+    font-size: clamp(55px, 9vw, 110px);
+    letter-spacing: -6px;
+    line-height: 0.95;
+    margin: 0;
 }
 
-.email {
-  color: #fff;
-  font-size: 20px;
-  text-decoration: none;
-  border-bottom: 1px solid #777;
+.contact-description {
+    color: #777;
+    margin: 35px 0;
+    line-height: 1.8;
 }
+
+.email-button {
+    display: inline-flex;
+    width: fit-content;
+    padding: 17px 26px;
+    border: 1px solid #444;
+    border-radius: 100px;
+    transition: 0.25s;
+}
+
+.email-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* FOOTER */
 
 footer {
-  padding: 30px 0 50px;
-  color: #888;
-  font-size: 13px;
+    padding: 35px 0;
+    border-top: 1px solid #181818;
+    color: #555;
+    font-size: 12px;
 }
 
-@media (max-width: 700px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding: 75px 0;
-  }
-
-  .contact {
-    padding: 35px 25px;
-  }
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
 }
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: min(100% - 36px, 1180px);
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 14vw, 75px);
+        letter-spacing: -4px;
+    }
+
+    section {
+        padding: 100px 0;
+    }
+
+    .cards,
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .early {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .process-item {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .contact h2 {
+        letter-spacing: -4px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="wrap">
-    <div class="logo">STG</div>
-  </div>
-</header>
 
-<main>
+<!-- NAV -->
 
-<div class="wrap">
+<nav>
+
+<div class="container nav-inner">
+
+<div class="logo">STG</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#focus">Focus</a>
+<a href="#process">Process</a>
+<a href="#contact">Contact</a>
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- HERO -->
 
 <section class="hero">
-  <div class="eyebrow">STG · Early Stage Experiment</div>
 
-  <h1>
-    AI와 자동화로<br>
-    기업의 반복 업무를 줄입니다.
-  </h1>
+<div class="container">
 
-  <p>
-    STG는 기업에서 사람이 반복적으로 처리하고 있는 업무를 직접 관찰하고,
-    AI와 자동화를 활용해 더 빠르고 효율적으로 처리할 수 있는 방법을
-    실제 현장에서 검증하고 있습니다.
-  </p>
-</section>
-
-
-<section>
-
-<h2>What we do</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>문제 발견</h3>
-<p>
-기업에서 반복적으로 시간과 비용이 들어가는 업무를 찾습니다.
-</p>
+<div class="eyebrow">
+STG · EARLY STAGE COMPANY
 </div>
 
-<div class="card">
-<h3>직접 실행</h3>
-<p>
-기존 AI 도구와 자동화를 활용해 작은 업무부터 직접 처리합니다.
-</p>
-</div>
+<h1>
+Building the<br>
+<span>Future of Work.</span>
+</h1>
 
-<div class="card">
-<h3>결과 검증</h3>
-<p>
-시간 절감, 결과 품질, 재사용 가능성, 실제 지불 의사를 확인합니다.
-</p>
-</div>
+<p class="hero-description">
 
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Current Focus</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Sales Research</h3>
-<p>
-잠재고객 조사, 기업 정보 정리, 영업 대상 선별 등의 반복 업무
-</p>
-</div>
-
-<div class="card">
-<h3>Customer Inquiry</h3>
-<p>
-고객 문의 분류, 답변 초안 작성, 고객 정보 정리 등의 업무
-</p>
-</div>
-
-<div class="card">
-<h3>Data & Materials</h3>
-<p>
-자료 조사, 데이터 입력·정리, 비교 및 보고서 작성 등의 업무
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>How we work</h2>
-
-<div class="steps">
-
-<div class="step">
-<div class="num">01</div>
-<div>
-<strong>Problem Discovery</strong>
-<p>실제 현장에서 반복 업무와 불편을 찾습니다.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="num">02</div>
-<div>
-<strong>Direct Execution</strong>
-<p>작은 업무를 직접 처리하며 실제 결과를 확인합니다.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="num">03</div>
-<div>
-<strong>Validation</strong>
-<p>시간과 비용이 실제로 줄어드는지 검증합니다.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="num">04</div>
-<div>
-<strong>Automation</strong>
-<p>반복되는 해결책을 표준화하고 자동화합니다.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Early Stage</h2>
-
-<p style="font-size:19px;color:#555;max-width:760px;">
-
-현재 STG는 초기 검증 단계입니다.
-아직 특정 제품이나 서비스를 정해 놓지 않았습니다.
-
-실제 기업이 겪는 문제를 먼저 이해하고,
-작은 해결책을 직접 실행한 뒤,
-고객에게 실제로 가치가 있는지 확인하면서
-사업을 만들어가고 있습니다.
+STG는 AI와 자동화를 통해 기업의 반복 업무를 줄이고,
+사람이 더 중요한 일에 집중할 수 있는 새로운 업무 방식을
+실제 현장에서 만들어가고 있습니다.
 
 </p>
 
-</section>
-
-
-<section>
-
-<div class="contact">
-
-<h2>Contact</h2>
-
-<p>
-업무 인터뷰 또는 작은 테스트를 원하시면 연락해주세요.
-</p>
-
-<a class="email" href="mailto:taegeun.official@gmail.com">
-taegeun.official@gmail.com
+<a href="#about" class="hero-button">
+Discover STG →
 </a>
 
 </div>
 
 </section>
 
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-label">
+01 / ABOUT
 </div>
 
-</main>
+<h2 class="section-title">
+작은 문제에서 시작해<br>
+더 큰 시스템을 만듭니다.
+</h2>
 
+<p class="section-description">
+
+우리는 거대한 기술을 먼저 만들지 않습니다.
+실제 기업이 매일 반복해서 처리하는 작은 업무를 발견하고,
+직접 해결하고, 결과를 측정합니다.
+
+그 과정에서 반복되는 문제를 표준화하고,
+AI와 자동화로 확장할 수 있는 구조를 만들어갑니다.
+
+</p>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-number">01</div>
+
+<h3>Find</h3>
+
+<p>
+실제 기업에서 시간과 비용이 반복적으로 발생하는 문제를 찾습니다.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">02</div>
+
+<h3>Build</h3>
+
+<p>
+작은 업무부터 직접 해결하며 실제로 작동하는 방법을 만듭니다.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">03</div>
+
+<h3>Scale</h3>
+
+<p>
+검증된 해결책을 표준화하고 자동화하여 더 큰 시스템으로 확장합니다.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOCUS -->
+
+<section id="focus">
+
+<div class="container">
+
+<div class="section-label">
+02 / CURRENT FOCUS
+</div>
+
+<h2 class="section-title">
+Where we are<br>
+starting.
+</h2>
+
+<p class="section-description">
+
+현재는 기업의 반복적인 업무 중
+AI와 자동화로 실제 개선할 수 있는 영역을 찾고 있습니다.
+
+</p>
+
+
+<div class="focus-grid">
+
+<div class="focus">
+
+<h3>Sales Research</h3>
+
+<p>
+잠재고객 조사, 기업 정보 수집,
+영업 대상 선별과 같은 반복적인 영업 지원 업무를 검증합니다.
+</p>
+
+</div>
+
+
+<div class="focus">
+
+<h3>Customer Operations</h3>
+
+<p>
+고객 문의 분류, 답변 준비,
+고객 정보 정리 등 반복적인 고객 대응 업무를 살펴봅니다.
+</p>
+
+</div>
+
+
+<div class="focus">
+
+<h3>Business Data</h3>
+
+<p>
+자료 조사, 데이터 정리,
+비교 분석과 보고서 작성 등 반복적인 정보 업무를 검증합니다.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- PROCESS -->
+
+<section id="process">
+
+<div class="container">
+
+<div class="section-label">
+03 / HOW WE WORK
+</div>
+
+<h2 class="section-title">
+Reality first.
+</h2>
+
+<p class="section-description">
+아이디어보다 실제 결과를 중요하게 생각합니다.
+</p>
+
+
+<div class="process">
+
+<div class="process-item">
+
+<div class="process-number">01</div>
+
+<div class="process-content">
+
+<h3>Observe</h3>
+
+<p>
+실제 기업의 업무와 문제를 관찰합니다.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="process-item">
+
+<div class="process-number">02</div>
+
+<div class="process-content">
+
+<h3>Execute</h3>
+
+<p>
+작은 업무를 직접 처리하면서 해결 가능성을 확인합니다.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="process-item">
+
+<div class="process-number">03</div>
+
+<div class="process-content">
+
+<h3>Measure</h3>
+
+<p>
+시간, 비용, 품질 그리고 고객의 실제 반응을 측정합니다.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="process-item">
+
+<div class="process-number">04</div>
+
+<div class="process-content">
+
+<h3>Automate</h3>
+
+<p>
+반복되는 해결책을 AI와 자동화 시스템으로 발전시킵니다.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- EARLY STAGE -->
+
+<section>
+
+<div class="container">
+
+<div class="early">
+
+<div class="early-big">
+
+We are<br>
+just getting<br>
+started.
+
+</div>
+
+<div class="early-text">
+
+STG는 아직 초기 단계입니다.
+
+<br><br>
+
+아직 완성된 제품이나 거대한 조직을 가지고 있지 않습니다.
+대신 실제 고객의 문제를 직접 발견하고 해결하면서
+무엇이 정말 가치가 있는지 검증하고 있습니다.
+
+<br><br>
+
+작은 문제 하나를 해결하는 것에서 시작해
+더 큰 업무 시스템과 산업으로 확장하는 것이 우리의 방식입니다.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact">
+
+<div class="section-label">
+04 / CONTACT
+</div>
+
+<h2>
+Let's<br>
+build.
+</h2>
+
+<p class="contact-description">
+
+반복적인 업무를 줄이거나
+새로운 업무 방식을 실험하고 싶다면 연락해주세요.
+
+</p>
+
+<a
+href="mailto:taegeun.official@gmail.com"
+class="email-button"
+>
+taegeun.official@gmail.com →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
 
 <footer>
 
-<div class="wrap">
-© 2026 STG. All rights reserved.
+<div class="container footer-inner">
+
+<div>STG</div>
+
+<div>© 2026 STG. All rights reserved.</div>
+
 </div>
 
 </footer>
+
 
 </body>
 </html>
