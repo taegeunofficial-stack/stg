@@ -1,234 +1,347 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>STG — Restore Confidence</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --ink:#0b0b0b;
-      --paper:#ffffff;
-      --line:#e9e9e9;
-      --muted:#6f6f6f;
-      --max:1200px;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Helvetica, Arial, sans-serif;}
-    body{background:var(--paper);color:var(--ink);}
+<title>STG — AI & Automation</title>
 
-    /* NAV */
-    nav{
-      position:fixed; inset:0 0 auto 0;
-      height:72px;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:0 40px;
-      background:rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--line);
-      z-index:50;
-    }
-    .logo{letter-spacing:6px;font-weight:800;}
-    nav a{
-      text-decoration:none;color:var(--ink);
-      margin-left:24px;
-      font-size:14px;
-      letter-spacing:1px;
-    }
+<meta name="description" content="STG는 AI와 자동화를 통해 기업의 반복 업무를 줄이는 방법을 실제 현장에서 검증하는 초기 단계의 기업입니다.">
 
-    /* HERO */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:120px 24px 80px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.55) 100%),
-        url("./hero.jpg");
-      background-size:cover;
-      background-position:center;
-      color:#fff;
-    }
-    .hero-inner{
-      width:min(var(--max), 100%);
-      text-align:center;
-    }
-    .hero-kicker{
-      font-size:12px;
-      letter-spacing:4px;
-      opacity:.85;
-      text-transform:uppercase;
-      margin-bottom:18px;
-    }
-    .hero h1{
-      font-size:clamp(56px, 6.6vw, 110px);
-      letter-spacing:10px;
-      font-weight:800;
-      line-height:1.02;
-    }
-    .hero p{
-      margin:26px auto 0;
-      max-width:680px;
-      font-size:clamp(16px, 1.3vw, 20px);
-      line-height:1.7;
-      opacity:.92;
-    }
-    .cta-row{
-      margin-top:34px;
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    .btn{
-      border:1px solid rgba(255,255,255,0.35);
-      color:#fff;
-      padding:12px 18px;
-      text-decoration:none;
-      font-size:14px;
-      letter-spacing:1px;
-      background:rgba(0,0,0,0.22);
-      backdrop-filter: blur(6px);
-    }
-    .btn.solid{
-      background:#fff;
-      color:#000;
-      border-color:#fff;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    /* SECTIONS */
-    section{
-      width:min(var(--max), 100%);
-      margin:0 auto;
-      padding:110px 24px;
-    }
-    h2{
-      font-size:28px;
-      letter-spacing:2px;
-    }
-    .sub{
-      margin-top:10px;
-      color:var(--muted);
-      line-height:1.7;
-      max-width:780px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.7;
+}
 
-    /* CARDS */
-    .cards{
-      margin-top:42px;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:18px;
-    }
-    .card{
-      border:1px solid var(--line);
-      padding:28px;
-      min-height:180px;
-      background:#fff;
-    }
-    .card h3{
-      font-size:18px;
-      letter-spacing:1px;
-      margin-bottom:10px;
-    }
-    .card p{
-      color:var(--muted);
-      line-height:1.7;
-      font-size:14px;
-    }
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
 
-    /* FOOTER */
-    footer{
-      border-top:1px solid var(--line);
-      padding:40px 24px;
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-      letter-spacing:1px;
-    }
+header {
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+}
 
-    /* mobile */
-    @media (max-width:640px){
-      nav{padding:0 16px;}
-      nav a{margin-left:14px;}
-      .hero h1{letter-spacing:6px;}
-    }
-  </style>
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hero {
+  padding: 110px 0 100px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #777;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.08;
+  letter-spacing: -3px;
+  margin: 0 0 30px;
+  max-width: 850px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #555;
+  max-width: 700px;
+}
+
+section {
+  padding: 75px 0;
+  border-top: 1px solid #eee;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 0 0 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  padding: 28px;
+  min-height: 170px;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0;
+  color: #666;
+}
+
+.steps {
+  display: grid;
+  gap: 18px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 18px;
+}
+
+.num {
+  color: #888;
+}
+
+.step strong {
+  font-size: 19px;
+}
+
+.step p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+.contact {
+  background: #111;
+  color: #fff;
+  padding: 60px;
+}
+
+.contact p {
+  color: #bbb;
+}
+
+.email {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  border-bottom: 1px solid #777;
+}
+
+footer {
+  padding: 30px 0 50px;
+  color: #888;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 75px 0;
+  }
+
+  .contact {
+    padding: 35px 25px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <nav>
+
+<header>
+  <div class="wrap">
     <div class="logo">STG</div>
-    <div>
-      <a href="#brand">BRAND</a>
-      <a href="#business">BUSINESS</a>
-      <a href="#explore">EXPLORE</a>
-      <a href="#contact">CONTACT</a>
-    </div>
-  </nav>
+  </div>
+</header>
 
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-kicker">CONFIDENCE RESTORATION COMPANY</div>
-      <h1>RESTORE CONFIDENCE</h1>
-      <p>
-        STG는 외형이 아닌 중심을 회복하는 회사입니다.<br/>
-        당신이 다시 “나답게” 서도록 — 감정과 태도, 삶의 밀도를 재정렬합니다.
-      </p>
-      <div class="cta-row">
-        <a class="btn solid" href="#business">START HERE</a>
-        <a class="btn" href="#contact">CONTACT</a>
-      </div>
-    </div>
-  </header>
+<main>
 
-  <section id="brand">
-    <h2>BRAND</h2>
-    <p class="sub">
-      우리는 제품을 파는 것이 아니라 “상태”를 설계합니다.
-      회복된 자신감이 표정, 자세, 선택, 그리고 삶의 결과를 바꿉니다.
-    </p>
-  </section>
+<div class="wrap">
 
-  <section id="business">
-    <h2>BUSINESS</h2>
-    <p class="sub">
-      Hair에서 시작해 Lifestyle로 확장하고, 최종적으로 Bio/Healthcare로 진화합니다.
-      모든 사업은 ‘자신감 회복’이라는 하나의 중심으로 연결됩니다.
-    </p>
+<section class="hero">
+  <div class="eyebrow">STG · Early Stage Experiment</div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Hair & Beauty</h3>
-        <p>첫 인상과 자존감을 복원하는 가장 즉각적인 경험.</p>
-      </div>
-      <div class="card">
-        <h3>Lifestyle</h3>
-        <p>향, 스타일, 루틴, 공간 — 삶의 리듬을 고급스럽게 재설계.</p>
-      </div>
-      <div class="card">
-        <h3>Bio & Healthcare</h3>
-        <p>회복을 과학으로 확장. 안티에이징·재생·헬스 플랫폼으로.</p>
-      </div>
-    </div>
-  </section>
+  <h1>
+    AI와 자동화로<br>
+    기업의 반복 업무를 줄입니다.
+  </h1>
 
-  <section id="explore">
-    <h2>EXPLORE</h2>
-    <p class="sub">
-      다음 단계에서 각 영역 페이지(Hair / Lifestyle / Bio)를 분리해
-      “브랜드 스토리 + 상품/서비스 판매”까지 연결합니다.
-    </p>
-  </section>
+  <p>
+    STG는 기업에서 사람이 반복적으로 처리하고 있는 업무를 직접 관찰하고,
+    AI와 자동화를 활용해 더 빠르고 효율적으로 처리할 수 있는 방법을
+    실제 현장에서 검증하고 있습니다.
+  </p>
+</section>
 
-  <section id="contact">
-    <h2>CONTACT</h2>
-    <p class="sub">
-      협업, 투자, 콘텐츠, 브랜드 제안은 아래로 연락 주세요.<br/>
-      Email: stg@your-email.com
-    </p>
-  </section>
 
-  <footer>© STG</footer>
+<section>
+
+<h2>What we do</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>문제 발견</h3>
+<p>
+기업에서 반복적으로 시간과 비용이 들어가는 업무를 찾습니다.
+</p>
+</div>
+
+<div class="card">
+<h3>직접 실행</h3>
+<p>
+기존 AI 도구와 자동화를 활용해 작은 업무부터 직접 처리합니다.
+</p>
+</div>
+
+<div class="card">
+<h3>결과 검증</h3>
+<p>
+시간 절감, 결과 품질, 재사용 가능성, 실제 지불 의사를 확인합니다.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Current Focus</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Sales Research</h3>
+<p>
+잠재고객 조사, 기업 정보 정리, 영업 대상 선별 등의 반복 업무
+</p>
+</div>
+
+<div class="card">
+<h3>Customer Inquiry</h3>
+<p>
+고객 문의 분류, 답변 초안 작성, 고객 정보 정리 등의 업무
+</p>
+</div>
+
+<div class="card">
+<h3>Data & Materials</h3>
+<p>
+자료 조사, 데이터 입력·정리, 비교 및 보고서 작성 등의 업무
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>How we work</h2>
+
+<div class="steps">
+
+<div class="step">
+<div class="num">01</div>
+<div>
+<strong>Problem Discovery</strong>
+<p>실제 현장에서 반복 업무와 불편을 찾습니다.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">02</div>
+<div>
+<strong>Direct Execution</strong>
+<p>작은 업무를 직접 처리하며 실제 결과를 확인합니다.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">03</div>
+<div>
+<strong>Validation</strong>
+<p>시간과 비용이 실제로 줄어드는지 검증합니다.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">04</div>
+<div>
+<strong>Automation</strong>
+<p>반복되는 해결책을 표준화하고 자동화합니다.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Early Stage</h2>
+
+<p style="font-size:19px;color:#555;max-width:760px;">
+
+현재 STG는 초기 검증 단계입니다.
+아직 특정 제품이나 서비스를 정해 놓지 않았습니다.
+
+실제 기업이 겪는 문제를 먼저 이해하고,
+작은 해결책을 직접 실행한 뒤,
+고객에게 실제로 가치가 있는지 확인하면서
+사업을 만들어가고 있습니다.
+
+</p>
+
+</section>
+
+
+<section>
+
+<div class="contact">
+
+<h2>Contact</h2>
+
+<p>
+업무 인터뷰 또는 작은 테스트를 원하시면 연락해주세요.
+</p>
+
+<a class="email" href="mailto:taegeun.official@gmail.com">
+taegeun.official@gmail.com
+</a>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="wrap">
+© 2026 STG. All rights reserved.
+</div>
+
+</footer>
+
 </body>
 </html>
